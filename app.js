@@ -1,11 +1,11 @@
-var express = require('express');
-var app = express();
-var mongoose = require('mongoose');
-var ejs = require('ejs-locals');
+var express = require('express'),
+    app = express(),
+    mongoose = require('mongoose'),
+    ejs = require('ejs-locals'),
+    config = require(__dirname + '/config').config;
+api = require(__dirname + '/controllers');
 
-mongoose.connect('mongodb://localhost:27017/trouble_city');
-
-var api = require(__dirname + '/controllers');
+mongoose.connect(config.db);
 
 app.set('views', __dirname + '/views');
 app.engine('ejs', ejs);
