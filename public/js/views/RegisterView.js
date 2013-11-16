@@ -32,22 +32,21 @@ define([
 	    var username = $('#re-username').val();
 	    var password = $('#re-password').val();
 	    var email = $('#re-email').val();
-	    console.log(email);
+	    console.log(username);
 	    var user = new User({
-		username: username,
-		password: password,
-		email: email
-	    });
+				username: username,
+				password: password,
+				email: email
+			});
 
 	    user.save({
-		wait: true,
-		success: function () {
-		    alert('success');
-		},
-		error: function () {
-		    alert('error');
-		}
-	    })
+			success: function () {
+		    	alert('success');
+			},
+			error: function () {
+		    	alert('error');
+			}
+	    });
 	},
 
 	handleFacebookRegister: function (){

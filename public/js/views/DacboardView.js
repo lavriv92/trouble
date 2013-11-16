@@ -4,19 +4,18 @@ define([
     'backbone',
     'views/MapView',
     'text!templates/dachboard.html'
-], function($, _, Backbone, MapView, dacbordTemplate){
+], function($, _, Backbone, MapView, dacbordTemplate) {
     var DachbordView = Backbone.View.extend({
 	el: '#content',
 	
-	initialize: function (){
+	initialize: function () {
 	    this.render();
 	},
 	
-	render: function (){
+	render: function () {
 	    $(this.el).html(_.template(dacbordTemplate));
 	    var map = new MapView({el: '#map'});
 	}
-    });
-
+});
     return DachbordView;
 });

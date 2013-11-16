@@ -1,9 +1,9 @@
 var express = require('express'),
-    app = express(),
-    mongoose = require('mongoose'),
-    ejs = require('ejs-locals'),
-    config = require(__dirname + '/config').config;
-api = require(__dirname + '/controllers');
+	app = express(),
+	mongoose = require('mongoose'),
+	ejs = require('ejs-locals'),
+	config = require(__dirname + '/config').config;
+var api = require(__dirname + '/controllers');
 
 mongoose.connect(config.db);
 
@@ -16,9 +16,8 @@ app.use(express.bodyParser());
 app.use(express.cookieParser());
 app.use(express.session({secret: '1234567809qwerty'}));
 
-
-app.get('/', function(req, res){
-    res.render('index');
+app.get('/', function(req, res) {
+	res.render('index');
 });
 
 app.get('/users', api.getUsers);

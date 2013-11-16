@@ -13,11 +13,11 @@ define([
   
   var AppRouter = Backbone.Router.extend({
       routes: {
-          "": "index",
-          "!/detail/:id": "showDetail",
-	  "!/login": "showLogin",
-	  "!/register": "showRegister",
-	  "!/dachboard": "showDachboard"
+        "": "index",
+        "!/detail/:id": "showDetail",
+	  	"!/login": "showLogin",
+	  	"!/register": "showRegister",
+	  	"!/dachboard": "showDachboard"
       },
 
       index: function () {
@@ -25,7 +25,8 @@ define([
       },
 
       showDetail: function (id){
-	  var view = new PostDetailView();
+      	console.log(id);
+	  	var view = new PostDetailView();
       },
       
       showLogin: function () {

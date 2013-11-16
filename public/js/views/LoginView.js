@@ -30,34 +30,34 @@ define([
 	    var password = $('#password').val();
 	    
 	    $.ajax({
-		url: '/login',
-		type: 'POST',
- 		data: {
-		    username: username,
-		    password: password
-		},
-		
-		success: function (){
-		    window.location.href = '/';
-		},
+			url: '/login',
+			type: 'POST',
+	 		data: {
+			    username: username,
+			    password: password
+			},
+			
+			success: function (){
+			    window.location.href = '/';
+			},
 
-		error: function (){
-		    var message_view = new FlashMessageView();
-		}
+			error: function (){
+			    var message_view = new FlashMessageView();
+			}
 	    });
 	},
 
 	handleFacebookLogin: function(){
 	    $.ajax({
-		url: '/facebook_login',
-		type: 'POST',
-		data: {},
-		success: function (){
-		    alert('success');		
-		},
-		error: function (){
-		    alert('error');
-		}
+			url: '/facebook_login',
+			type: 'POST',
+			data: {},
+			success: function (){
+			    alert('success');		
+			},
+			error: function (){
+			    alert('error');
+			}
 	    });
 	},
 
