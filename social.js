@@ -10,9 +10,13 @@ function Facebook (authData) {
 Facebook.prototype = {
 
   getAuthorizeURL: function () {
+    var userScope = ['offline_access','create_event',
+                           'publish_stream','user_events',
+                           'friends_about_me'];
+
     var url = 'https://graph.facebook.com/oauth/authorize' +
               '?client_id=' + this.appId +
-              '&scope=offline_access,create_event,publish_stream,user_events' +
+              '&scope=' + userScope.join(',') +
               '&redirect_uri=' + this.redirectUrl +
               '&response_type=code' +
               '&state=0';
@@ -20,7 +24,7 @@ Facebook.prototype = {
   },
 
   getTokenData: function (generatedCode, callback) {
-    
+
     /*
       @callback must be a function
     */
@@ -39,6 +43,19 @@ Facebook.prototype = {
     });
     query.end();
   },
+
+  getUserDetails: function (accessToken, callback) {
+    /*
+      @ access_token is required
+    */
+    var url = "https://graph.facebook.com/me?access_token=" + accessToken;
+    var query = https.get(url, function (res) {
+      res.on('data', function (data) {
+        var userData = JSON.parse(data.toString('utf-8'));
+        callback(userData);
+      });
+    });
+  }
 };
 
 function Twitter (authData) {

@@ -44,7 +44,7 @@ exports.getUserDetails = function (req, res) {
 
 exports.updateUser = function (req, res) {
     //---
-  };
+};
 
   exports.deleteUser = function (req, res) {
     User.remove({_id: request.params.id}, function (err) {
@@ -152,8 +152,21 @@ exports.handleFacebookCode = function (req, res) {
 
   if (req.query.code !== undefined) {
     f.getTokenData(req.query.code, function (token) {
+      req.session.token = token;
       f.getUserDetails(token, function (user) {
-        console.log(user);
+        var new_user = new User({
+          username: user.username,
+          password: 'q',
+          email: user.email,
+          facebook_id: user.id,
+          picture_url: 'https://graph.facebook.com/' + user.id + '/picture?type=square'
+        });
+
+        new_user.save(function (err) {
+          if(err) {
+            console.log(err);
+          };
+        });
       });
     });
   }
