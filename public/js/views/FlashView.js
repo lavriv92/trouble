@@ -1,60 +1,59 @@
 define([
-    'jquery',
-    'underscore',
-    'backbone',
-    'text!templates/message.html'
+  'jquery',
+  'underscore',
+  'backbone',
+  'text!templates/message.html'
 ], function ($, _, Backbone, FlashTemplate){
-    var FlashMessageView = Backbone.View.extend({
-	el: '#messages',
+  var FlashMessageView = Backbone.View.extend({
+    el: '#messages',
 
-	tagName: 'messages',
+    tagName: 'messages',
 
-	authomaticClose: true,
+    authomaticClose: true,
 
-	defaultMessages: {
-	    'success': 'Success!',
-	    'error': 'Sorry! An error occuret this process'
-	},
+    defaultMessages: {
+      'success': 'Success!',
+      'error': 'Sorry! An error occuret this process'
+    },
 
-	classes: {
-	    'success': '.success',
-	    'warning': '.warning',
-	    'error': '.error',
-	    'info': '.info'
-	},
+    classes: {
+      'success': '.success',
+      'warning': '.warning',
+      'error': '.error',
+      'info': '.info'
+    },
 
-	events: {
-	    'click': 'closeNotification'
-	},
+    events: {
+      'click': 'closeNotification'
+    },
 
-	initialize: function (){
-	    this.render();
-	},
+    initialize: function (){
+      this.render();
+    },
 
-	render: function (){
+    render: function (){
+      var self = this;
+      $(this.el).hide();
+      $(this.el).html(_.template(FlashTemplate, {"message": this.defaultMessages.error}));
+      $(this.el).fadeIn();
 
-	    var self = this;
-	    $(this.el).hide();
-	    $(this.el).html(_.template(FlashTemplate, {"message": this.defaultMessages.error}));
-	    $(this.el).fadeIn();
+      if(this.authomaticClose){
+        setTimeout(function(){
+          self.closeNotification();
+        }, 3000);
+      }
 
-	    if(this.authomaticClose){
-		setTimeout(function(){
-		    self.closeNotification();
-		}, 3000);
-	    }
 	    return this;
-	},
+    },
 
-	closeNotification: function () {
-	    var self = this;
-	    $(this.el).fadeOut(function(){
-		self.unbind();
-		$(self.el).remove('#message-container');
-	    });
-	}
+    closeNotification: function () {
+      var self = this;
+      $(this.el).fadeOut(function(){
+        self.unbind();
+        $(self.el).remove('#message-container');
+      });
+    }
+  });
 
-    });
-    
-    return FlashMessageView;
+  return FlashMessageView;
 });

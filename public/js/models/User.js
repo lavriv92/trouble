@@ -1,9 +1,9 @@
 define([
-    'underscore',
-    'backbone'
-], function(_, Backbone){
+  'underscore',
+  'backbone'
+  ], function(_, Backbone){
     var User = Backbone.Model.extend({
-	url: '/users'
-    });
+     url: '/users'
+   });
     return User;
-});
+  });

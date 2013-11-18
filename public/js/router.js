@@ -8,44 +8,41 @@ define([
   'views/RegisterView',
   'views/DacboardView'
 ], function($, _, Backbone, IndexView, 
-	    PostDetailView, LoginView, RegisterView,
-	    DachbordView) {
-  
+  PostDetailView, LoginView, RegisterView,
+  DachbordView) {
   var AppRouter = Backbone.Router.extend({
-      routes: {
-        "": "index",
-        "!/detail/:id": "showDetail",
-	  	"!/login": "showLogin",
-	  	"!/register": "showRegister",
-	  	"!/dachboard": "showDachboard"
-      },
+    routes: {
+      "": "index",
+      "!/detail/:id": "showDetail",
+      "!/login": "showLogin",
+      "!/register": "showRegister",
+      "!/dachboard": "showDachboard"
+    },
 
-      index: function () {
-	  var view = new IndexView();
-      },
+    index: function () {
+      var view = new IndexView();
+    },
 
-      showDetail: function (id){
-      	console.log(id);
-	  	var view = new PostDetailView();
-      },
-      
-      showLogin: function () {
-	  var login = new LoginView();
-      },
+    showDetail: function (id){
+      console.log(id);
+      var view = new PostDetailView();
+    },
 
-      showRegister: function (){
-	  var register = new RegisterView();
-      },
+    showLogin: function () {
+      var login = new LoginView();
+    },
 
-      showDachboard: function () {
-	  var dacboard = new DachbordView();
-      }
+    showRegister: function (){
+      var register = new RegisterView();
+    },
+
+    showDachboard: function () {
+      var dacboard = new DachbordView();
+    }
   });
-  
+
   var initialize = function(){
-
     var app_router = new AppRouter();
-
     Backbone.history.start();
   };
 

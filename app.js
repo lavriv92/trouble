@@ -1,9 +1,10 @@
 var express = require('express'),
-	app = express(),
-	mongoose = require('mongoose'),
-	ejs = require('ejs-locals'),
-	config = require(__dirname + '/config').config;
+app = express(),
+mongoose = require('mongoose'),
+ejs = require('ejs-locals'),
+config = require(__dirname + '/config').config;
 var api = require(__dirname + '/controllers');
+var social = require(__dirname + '/social');
 
 mongoose.connect(config.db);
 
@@ -20,12 +21,16 @@ app.get('/', function(req, res) {
 	res.render('index');
 });
 
+app.get('/facebook_login', api.facebookLogin);
+
 app.get('/users', api.getUsers);
 app.post('/users', api.saveUser);
 app.get('/users/:id', api.getUserDetails);
 app.delete('/users/:id', api.deleteUser);
 
 app.post('/login', api.logIn);
+
+app.get('/oauth_callback', api.handleFacebookCode);
 
 app.listen(3000);
 console.log('server run on port: 3000');

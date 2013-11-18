@@ -1,5 +1,7 @@
 var crypto = require('crypto');
 var User = require(__dirname + '/models').User;
+var social = require(__dirname + '/social');
+var config = require(__dirname + '/config').config;
 
 function cryptPassword (password) {
   if(password !== undefined) {
@@ -21,7 +23,6 @@ exports.getUsers = function (req, res) {
 exports.saveUser = function (req, res) {
   req.body.password = cryptPassword(req.body.password);
   var user = new User(req.body);
-  console.log(req.body);
   user.save(function(err) {
     if(!err) {
       res.send(200);
@@ -43,17 +44,17 @@ exports.getUserDetails = function (req, res) {
 
 exports.updateUser = function (req, res) {
     //---
-};
+  };
 
-exports.deleteUser = function (req, res) {
-  User.remove({_id: request.params.id}, function (err) {
-    if(!err) { 
-      res.send(200);
-    } else { 
-      res.send(500);
-    }
-  });
-};
+  exports.deleteUser = function (req, res) {
+    User.remove({_id: request.params.id}, function (err) {
+      if(!err) { 
+        res.send(200);
+      } else { 
+        res.send(500);
+      }
+    });
+  };
 
 //------------------------------------------------------------------------------
 
@@ -130,4 +131,31 @@ exports.logOut = function (req, res) {
   } else {
     res.redirect('/');
   } 
+};
+
+exports.facebookLogin = function (req, res) {
+   var f = new social.Facebook({
+    appId: config.facebook.appId,
+    appSecret: config.facebook.appSecret,
+    redirectUrl: config.facebook.redirectUrl
+  });
+  var url = f.getAuthorizeURL();
+  res.redirect(url);
+}
+
+exports.handleFacebookCode = function (req, res) {
+  var f = new social.Facebook({
+    appId: config.facebook.appId,
+    appSecret: config.facebook.appSecret,
+    redirectUrl: config.facebook.redirectUrl
+  });
+
+  if (req.query.code !== undefined) {
+    f.getTokenData(req.query.code, function (token) {
+      f.getUserDetails(token, function (user) {
+        console.log(user);
+      });
+    });
+  }
+  res.redirect('/#');
 };

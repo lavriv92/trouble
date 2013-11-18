@@ -1,5 +1,5 @@
 var mongoose = require('mongoose'),
-	Schema = mongoose.Schema;
+Schema = mongoose.Schema;
 
 var userSchema = new Schema({
 	username: {
@@ -14,15 +14,26 @@ var userSchema = new Schema({
 		type: String,
 		required: true
 	},
+  facebook_id: String,
+  picture_url: String
 },{
-    collection: 'user'
+  collection: 'user'
 });
 
 var postSchema = new Schema({
-    _author: {type: Number, ref: 'User' },
-    content: String,
-    date: Date,
+  _author: {type: Number, ref: 'User' },
+  content: String,
+  date: Date,
+});
+
+var userFacebookTokenSchema = new Schema({
+  _token: String,
+  user_id: String
 });
 
 exports.User = mongoose.model('User', userSchema);
 exports.Post = mongoose.model('Post', postSchema);
+exports.FacebookToken = mongoose.model(
+  'FacebookToken', 
+  userFacebookTokenSchema
+);
