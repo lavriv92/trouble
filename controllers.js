@@ -89,6 +89,7 @@ exports.saveCategory = function (req, res) {
   });
 };
 
+
 exports.deleteCategory = function (req, res) {
   Category.remove({_id: request.params.id}, function (err) {
     if(!err) {
@@ -140,8 +141,14 @@ exports.facebookLogin = function (req, res) {
     redirectUrl: config.facebook.redirectUrl
   });
   var url = f.getAuthorizeURL();
+  delete f;
   res.redirect(url);
-}
+};
+
+exports.getFacebookFriends = function (req, res) {
+  var access_token = req.session.access_token;
+  console.log(access_token);
+};
 
 exports.handleFacebookCode = function (req, res) {
   var f = new social.Facebook({

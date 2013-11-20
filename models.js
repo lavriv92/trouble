@@ -28,7 +28,8 @@ var postSchema = new Schema({
 
 var userFacebookTokenSchema = new Schema({
   _token: String,
-  user_id: String
+  user_id: String,
+  facebook_id: String
 });
 
 exports.User = mongoose.model('User', userSchema);

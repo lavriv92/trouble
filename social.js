@@ -1,5 +1,10 @@
 var https = require('https');
 
+/*
+  @ class: Facebook graph api router
+  @ constructor
+*/
+
 function Facebook (authData) {
   var self = this;
   this.appId = authData.appId;
@@ -48,6 +53,7 @@ Facebook.prototype = {
     /*
       @ access_token is required
     */
+    
     var url = "https://graph.facebook.com/me?access_token=" + accessToken;
     var query = https.get(url, function (res) {
       res.on('data', function (data) {
@@ -55,7 +61,11 @@ Facebook.prototype = {
         callback(userData);
       });
     });
-  }
+  },
+
+  getUserFriends: function () {
+
+  },
 };
 
 function Twitter (authData) {

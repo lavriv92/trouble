@@ -328,6 +328,12 @@ footer{
 
 .username{
   color: #176d86;
+  vertical-align: top;
+}
+
+.username img {
+  margin-right: 10px;
+  border-radius: 5px;
 }
 
 .post-detail {
@@ -509,7 +515,7 @@ footer{
   padding-top: 10px;
 }
 
-#dashboard-right h3 a{
+#dashboard-right h3 a {
  color: #1B7B97;
  font-weight: bold;
  font-size: 15px;
@@ -518,4 +524,33 @@ footer{
 
 #dashboard-right h3 a:hover{
   text-decoration: underline;
+}
+
+.fb-posts-view-container {
+  overflow-y: scroll;
+  margin: 10px;
+  height: 80%;
+  border-radius: 5px;
+}
+
+.fb-posts-view {
+  height : 500px;
+  background: #f6f6f6;
+  margin: 5px;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track { 
+    border-radius: 10px;
+    background: #ccc;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: #1B7B97;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
 }
