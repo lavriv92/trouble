@@ -6,7 +6,9 @@
   },
   "description": "trouble city",
   "dependencies": {
-    "express": "~3.4.8"
+    "express": "~3.4.8",
+    "mongoose": "~3.8.8",
+    "ejs-locals": "~1.0.2"
   },
   "engine": "node >= 0.11.12"
 }
