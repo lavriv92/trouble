@@ -1,0 +1,12 @@
+{
+  "name": "trouble",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lavriv92/trouble.git"
+  },
+  "description": "trouble city",
+  "dependencies": {
+    "express": "~3.4.8"
+  },
+  "engine": "node >= 0.11.12"
+}
