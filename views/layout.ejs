@@ -6,25 +6,26 @@
   <link href='http://api.tiles.mapbox.com/mapbox.js/v1.3.1/mapbox.css' rel='stylesheet' />
 </head>
 <body>
-  <header>
-    <div id="messages"></div>
-    <div id="head-wrapper">
-      <img src="/img/marker-icon-2x.png" />
-      <div id="banner">
-        <a href="/"><h1>Trouble city</h1></a>
-      </div>
-      <div id="controll">
-        <div id="sign-in">
-          <a href="#!/register">Register</a>
+  <div id="main">
+    <header>
+      <div id="head-wrapper">
+        <img src="/img/marker-icon-2x.png" />
+        <div id="banner">
+          <a href="/"><h1>Trouble city</h1></a>
         </div>
-        <div id="login">
-          <a href="#!/login">Sign up</a>
+        <div id="controll">
+          <div id="sign-in">
+            <a href="#/account/register">Register</a>
+          </div>
+          <div id="login">
+            <a href="#/account/login">Sign up</a>
+          </div>
         </div>
       </div>
-    </div>
-  </header>
-  <%- body %>
-  <footer></footer>
+    </header>
+    <%- body %>
+    <footer></footer>
+  </div>
 </body>
 <script src="js/libs/require/require.js" data-main="/js/main"></script>
 </html>

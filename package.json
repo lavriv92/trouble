@@ -1,5 +1,6 @@
 {
   "name": "trouble",
+  "main": "main.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/lavriv92/trouble.git"
