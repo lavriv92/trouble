@@ -1,0 +1,9 @@
+<% _.each(posts, function(post) {  %>
+<div class="post" id="<%= post.get('id') %>">
+  <div class="username">
+    <img src="<%= post.get('picture_url') %>" />
+    <%= post.get('username') %>
+  </div>
+  <div><%= post.get('email') %></div>
+</div>
+<% }); %>
