@@ -2,16 +2,12 @@ define([
   'jquery',
   'underscore',
   'backbone',
-  'views/PostView',
-  'views/SearchView',
-  'views/MapView',
+  'core/views/map_view',
   'text!core/templates/index.html'
 ], function(
     $,
     _, 
     Backbone, 
-    PostView, 
-    SearchView, 
     MapView, 
     index_template
 ){
@@ -27,8 +23,6 @@ define([
       var self = this;
       this.$el.html(this.template);
       var map_view = new MapView({el: '#map'});
-      var post_view = new PostView();
-      var search_view = new SearchView();
     }
   });
 

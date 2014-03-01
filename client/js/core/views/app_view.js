@@ -4,7 +4,7 @@ define([
     var AppView = Backbone.View.extend({
         el: '#main',
         initialize: function () {
-            console.log('app render');
+            console.log(this.$el);
             return this;
         }
     });

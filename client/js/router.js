@@ -1,9 +1,7 @@
 define([
   'backbone',
   'core/router',
-  'account/router',
-  'views/PostDetailView',
-  'views/DacboardView'
+  'account/router'
 ], function(
     Backbone, 
     CoreRouter, 

@@ -2,7 +2,7 @@ define([
   'jquery',
   'underscore',
   'backbone',
-  'views/MapView',
+  'core/views/map_view',
   'collections/Users',
   'text!account/templates/register.html'
 ], function ($, _, Backbone, MapView, Users, register_template){

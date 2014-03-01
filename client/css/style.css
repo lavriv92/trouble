@@ -14,10 +14,8 @@ body {
 header {
   height: 60px;
   background: #1B7B97;    
-  color: #fff;
   line-height: 60px;
   margin-bottom: 1px;
-  box-shadow: 0 0 10px #000;
 }
 
 #banner a {
@@ -45,7 +43,6 @@ header {
   background: #fff;
   border-radius: 5px;
   height: 300px;
-  box-shadow: 0 0 8px #f6f6f6;
   margin-bottom: 20px;
 }
 
@@ -406,138 +403,16 @@ footer{
   font-weight: normal;
 }
 
-#massages{
+.dachboard-right {
   background: #000;
-  min-height: 30px;
-  width: 100%;
-  border-radius: 5px;
-  position: absolute;
-}
-
-#messages .message-item{
-  position: absolute;
-  z-index: 500;
-  background:   #FFBABA;
-  color: #fff;
-  width: 90%;
-  border-radius: 5px;
-  line-height: 30px;
-  font-size: 13px;
-  box-shadow: 0 0 5px #444;
-  text-align: left;
-  cursor: pointer;
-  text-align: center;
-  font-weight: bold;
-  margin-top: 77px;
-  margin-left: 50px;
-}
-
-#profile{
-  width: 250px;
-  height: 400px;
-  border-radius: 8px;
-  background: url('/img/bg.png');
-  margin-top: 5px;
-  box-shadow: 0 0 10px #000;
-  position: absolute;
-  margin-left: 5px;
-}
-
-#dashboard-right{
-  right: 0;
-  position: absolute;
-}
-
-#dashboard-posts{
-  right: 0;
-  width: 250px;
-  height: 300px;
-  border-radius: 8px;
-  background: url('/img/bg.png');
-  margin-top: 5px;
-  box-shadow: 0 0 10px #000;
-  margin-bottom: 5px;
-  margin-bottom: 10px;
-  margin-right: 5px;
-}
-
-#dashboard-messages{
-  right: 0;
-  width: 250px;
-  height: 200px;
-  border-radius: 8px;
-  background: url('/img/bg.png');
-  margin-top: 5px;
-  box-shadow: 0 0 10px #000;
-}
-
-#profile h3{
-  top: 10px;
-  margin-left: 10px;
-  padding-bottom: 10px;
-  padding-top: 10px;
-}
-
-#profile h3 a{
- color: #1B7B97;
- font-weight: bold;
- font-size: 15px;
- text-decoration: none;
-}
-
-#profile h3 a:hover{
-  text-decoration: underline;
-}
-
-
-#profile h3{
-  top: 10px;
-  margin-left: 10px;
-  padding-bottom: 10px;
-  padding-top: 10px;
-}
-
-#profile h3 a{
- color: #1B7B97;
- font-weight: bold;
- font-size: 15px;
- text-decoration: none;
-}
-
-#dashboard-right h3 a:hover{
-  text-decoration: underline;
-}
-
-#dashboard-right h3{
-  top: 10px;
-  margin-left: 10px;
-  padding-bottom: 10px;
-  padding-top: 10px;
-}
-
-#dashboard-right h3 a {
- color: #1B7B97;
- font-weight: bold;
- font-size: 15px;
- text-decoration: none;
-}
-
-#dashboard-right h3 a:hover{
-  text-decoration: underline;
-}
-
-.fb-posts-view-container {
+  min-height: 400px;
+  opacity: 0.5;
+  width: 30%;
   overflow-y: scroll;
-  margin: 10px;
-  height: 80%;
-  border-radius: 5px;
 }
 
-.fb-posts-view {
-  height : 500px;
-  background: #f6f6f6;
-  margin: 5px;
-  border-radius: 5px;
+.dachboard-right .post-list {
+  min-height: 1000px;
 }
 
 ::-webkit-scrollbar {
@@ -545,12 +420,9 @@ footer{
 }
 
 ::-webkit-scrollbar-track { 
-    border-radius: 10px;
     background: #ccc;
 }
 
 ::-webkit-scrollbar-thumb {
-    border-radius: 10px;
-    background: #1B7B97;
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+    background: #1B7B97; 
 }

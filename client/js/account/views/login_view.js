@@ -2,7 +2,7 @@ define([
   'jquery',
   'underscore',
   'backbone',
-  'views/MapView',
+  'core/views/map_view',
   'text!account/templates/login.html'
 ], function($, _, Backbone, MapView, login_template){
   var LoginView = Backbone.View.extend({

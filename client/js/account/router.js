@@ -2,11 +2,18 @@ define([
   'backbone',
   'account/views/login_view',
   'account/views/register_view',
-], function(Backbone, LoginView, RegisterView) {
+  'account/views/dachboard_view'
+], function(
+    Backbone, 
+    LoginView, 
+    RegisterView,
+    DachboardView
+) {
   var AccountRouter = Backbone.Router.extend({
     routes: {
       'account/login': 'login',
-      'account/register': 'register'
+      'account/register': 'register',
+      'account/dachboard': 'dachboard'
     },
 
     login: function (){
@@ -17,6 +24,11 @@ define([
     register: function (){
       var register_view = new RegisterView;
       register_view.render();
+    },
+
+    dachboard: function() {
+        var dachboard_view = new DachboardView;
+        dachboard_view.render();
     }
   });
 
