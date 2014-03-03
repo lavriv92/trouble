@@ -8,7 +8,7 @@
 body {
   background: url('/img/bg.png');
   overflow-y: scroll;
-  min-height: 100%;
+  max-height: 100%;
 }
 
 header {
@@ -405,24 +405,35 @@ footer{
 
 .dachboard-right {
   background: #000;
-  min-height: 400px;
-  opacity: 0.5;
-  width: 30%;
+  opacity: 0.9;
+  width: 30%
+}
+
+.dachboard-container {
+  height: 440px;
+  max-height: 440px;
   overflow-y: scroll;
 }
 
-.dachboard-right .post-list {
-  min-height: 1000px;
+.dachboard-header {
+  min-height: 160px;
+  background: #fff;
+  border-bottom: 1px solid #ddd;
+  max-width: 100%;
+}
+
+.dachboard-content {
+  min-height: 2000px;
 }
 
 ::-webkit-scrollbar {
-    width: 10px;
+  width: 10px;
 }
 
 ::-webkit-scrollbar-track { 
-    background: #ccc;
+  background: #ccc;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #1B7B97; 
+  background: #1B7B97; 
 }

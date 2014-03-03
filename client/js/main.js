@@ -18,6 +18,10 @@ require.config({
     'backbone': {
       'deps': ['jquery', 'underscore'],
       'exports': 'Backbone'
+    },
+    'text': {
+      'deps': [],
+      'exports': 'text'
     }
   }
 });

@@ -2,7 +2,8 @@ var express = require('express'),
     app = express(),
     mongoose = require('mongoose'),
     ejs = require('ejs-locals'),
-    config = require(__dirname + '/config').config;
+    config = require(__dirname + '/config');
+    account = require(__dirname + '/account');
 
 mongoose.connect(config.db);
 
@@ -15,9 +16,15 @@ app.use(express.bodyParser());
 app.use(express.cookieParser());
 app.use(express.session({secret: '1234567809qwerty'}));
 
-app.get('/', function(req, res) {
-	res.render('index');
+app.all('/', function(req, res) {
+  res.render('index');
 });
+
+/*
+  * load modules... 
+ */
+
+app.use(account);
 
 app.listen(3000);
 console.log('server run on port: 3000');
