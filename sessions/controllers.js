@@ -15,7 +15,7 @@ exports.login = function(req, res) {
         res.send(401);
       }
     } else {
-      res.send(404);
+      res.json(404, err);
     }
   });
 };
