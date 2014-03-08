@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
-var crypto = require('crypto');
+var utils = require(__dirname + '/utils');
+
 
 var userSchema = new mongoose.Schema({
   'username': {'type': String, 
@@ -15,7 +16,8 @@ var userSchema = new mongoose.Schema({
 
   'password': {
     'type': String,
-    'required': true
+    'required': true,
+    'set': utils.cryptPassword
   },
 
   'facebook_id': {
@@ -30,15 +32,11 @@ var userSchema = new mongoose.Schema({
   'collection': 'users'
 });
 
-userSchema.methods = {
-    cryptPassword: function(password) {
-        return crypto.createHash('sha256').
-            update(password).digest('base64');
-    },
 
-    authenticated: function(password) {
-        return this.cryptPassword(password) === this.password;
+userSchema.methods = {
+    authenticate: function(password) {
+        return utils.cryptPassword(password) === this.password;
     }
-}
+};
 
 exports.User = mongoose.model('User', userSchema);

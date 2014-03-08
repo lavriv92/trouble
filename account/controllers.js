@@ -27,7 +27,8 @@ exports.get = function(req, res, next) {
 
 exports.create = function(req, res, next) {
   var user = new models.User(req.body);
-  user.save(req.body, function(err) {
+
+  user.save(function(err) {
     if(!err) {
       res.json(user);
     } else {

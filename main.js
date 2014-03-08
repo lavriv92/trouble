@@ -4,6 +4,7 @@ var express = require('express'),
     ejs = require('ejs-locals'),
     config = require(__dirname + '/config');
     account = require(__dirname + '/account');
+    sessions = require(__dirname + '/sessions');
 
 mongoose.connect(config.db);
 
@@ -26,7 +27,7 @@ app.all('/', function(req, res) {
  */
 
 app.use(account);
-console.log('account loading');
+app.use(sessions);
 
 app.listen(3000);
 console.log('server run on port: 3000');
