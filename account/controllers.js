@@ -1,5 +1,6 @@
 var models = require(__dirname + '/models');
 
+
 exports.list = function(req, res, next) {
   models.User.find(function(err, users) {
     if(!err) {
