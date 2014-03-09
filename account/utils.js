@@ -1,5 +1,6 @@
 var crypto = require('crypto');
 
+
 exports.cryptPassword = function(passwordVal) {
   /*
    *cryptPassword {password}..
