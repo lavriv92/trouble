@@ -31,7 +31,7 @@ define([
        var email = $('#re-email').val();
 
        alert(password);
-    },
+   },
 
     handleFacebookRegister: function (){
       alert('facebook register');
