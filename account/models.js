@@ -27,7 +27,6 @@ var userSchema = new mongoose.Schema({
   'picture_url': {
     'type': String
   }
-
 },{
   'collection': 'users'
 });

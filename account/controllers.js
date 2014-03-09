@@ -13,9 +13,7 @@ exports.list = function(req, res, next) {
 
 
 exports.get = function(req, res, next) {
-  models.User.findOne({
-    _id: req.params.id
-  }, function (err, user) {
+  models.User.findOne({_id: req.params.id}, function (err, user) {
     if(!err) {
       res.json(user);
     } else {

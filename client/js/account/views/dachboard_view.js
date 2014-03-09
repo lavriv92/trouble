@@ -3,23 +3,24 @@ define([
   'underscore',
   'backbone',
   'core/views/map_view',
-  'collections/Posts',
+  'account/models/user',
   'text!account/templates/dachboard.html'
 ], function(
     $, 
     _, 
     Backbone, 
-    MapView, 
-    Posts, 
+    MapView,
+    User,
     dachboard_template
 ) {
   var DachbordView = Backbone.View.extend({
     el: '#content',
     template: _.template(dachboard_template),
-    
-    collection: new Posts(),
+
+    model: new User,
 
     initialize: function () {
+      console.log(this.model);
       return this;
     },
 
