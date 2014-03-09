@@ -3,12 +3,10 @@ define([
   'underscore',
   'backbone',
   'core/views/map_view',
-  'collections/Users',
   'text!account/templates/register.html'
-], function ($, _, Backbone, MapView, Users, register_template){
+], function ($, _, Backbone, MapView, register_template){
   var RegisterView = Backbone.View.extend({
     el: '#content',
-    collection: new Users(),
     template: _.template(register_template),
 
     events: {
@@ -28,23 +26,11 @@ define([
     },
 
     handleRegister: function (){
-      var username = $('#re-username').val();
-      var password = $('#re-password').val();
-      var email = $('#re-email').val();
-      console.log(username);
-      var user = new User({
-        username: username,
-        password: password,
-        email: email
-      });
-      user.save({
-        success: function () {
-          alert('success');
-        },
-        error: function () {
-		    	alert('error');
-        }
-      });
+       var username = $('#re-username').val();
+       var password = $('#re-password').val();
+       var email = $('#re-email').val();
+
+       alert(password);
     },
 
     handleFacebookRegister: function (){
