@@ -44,8 +44,6 @@ define([
          'email': email
        });
 
-       console.log(user);
-
        user.save(function(data) {
          console.log(data)
        });
