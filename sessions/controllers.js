@@ -10,7 +10,7 @@ exports.login = function(req, res) {
       var authenticated = user.authenticate(password);
 
       if(authenticated) {
-        if(!req.session.user_id) req.session.user_id = user._id;
+        req.session.user_id = user._id;
         res.send(200);
       } else {
         res.send(401);
@@ -26,9 +26,13 @@ exports.current  = function(req, res) {
 
   models.User.findOne({_id: session_id}, function(err, user) {
     if(!err) {
-      res.send(403);
+      if(user == null) {
+        res.send(403);
+      } else {
+        res.json(user);
+      }
     } else {
-      res.json(user);
+      res.send(500);
     }
   });
 };
