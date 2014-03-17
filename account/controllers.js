@@ -6,7 +6,7 @@ exports.list = function(req, res, next) {
     if(!err) {
       res.json(users);
     } else {
-      res.json(err);
+      res.json(400, err);
     }
   });
 };
@@ -30,7 +30,7 @@ exports.create = function(req, res, next) {
     if(!err) {
       res.json(user);
     } else {
-      res.json(err);
+      res.json(400, err);
     }
   });
 };

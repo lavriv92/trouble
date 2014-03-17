@@ -9,6 +9,14 @@ define([
       username: "",
       email: "",
       password: "",
+    },
+
+    validate: function(attrs) {
+      if(!attrs.username) {
+        this.on('invalid', function(error) { 
+          console.log(error);
+        })
+      }
     }
   });
 

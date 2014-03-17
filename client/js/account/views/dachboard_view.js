@@ -4,6 +4,7 @@ define([
   'backbone',
   'core/views/map_view',
   'account/models/user',
+  'account/models/current_user',
   'text!account/templates/dachboard.html'
 ], function(
     $, 
@@ -11,16 +12,18 @@ define([
     Backbone, 
     MapView,
     User,
+    CurrentUser,
     dachboard_template
 ) {
   var DachbordView = Backbone.View.extend({
     el: '#content',
     template: _.template(dachboard_template),
 
-    model: new User,
+    model: new CurrentUser(),
 
     initialize: function () {
-      console.log(this.model);
+      this.model.fetch();
+      console.log(this.model.attributes);
       return this;
     },
 
