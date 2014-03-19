@@ -3,7 +3,6 @@ define([
   'underscore',
   'backbone',
   'core/views/map_view',
-  'account/models/user',
   'account/models/current_user',
   'text!account/templates/dachboard.html'
 ], function(
@@ -11,7 +10,6 @@ define([
     _, 
     Backbone, 
     MapView,
-    User,
     CurrentUser,
     dachboard_template
 ) {
@@ -23,12 +21,11 @@ define([
 
     initialize: function () {
       this.model.fetch();
-      console.log(this.model.attributes);
       return this;
     },
 
     render: function () {
-      this.$el.html(this.template);
+      this.$el.html(this.template(this.model.toJSON()));
       var map = new MapView({el: '#map'});
       return this;
     }

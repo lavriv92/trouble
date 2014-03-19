@@ -7,8 +7,6 @@ define([
     },
 
     idAttribute: '_id',
-
-    save: function () {}
   });
 
   return CurrentUser;

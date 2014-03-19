@@ -21,6 +21,7 @@ exports.login = function(req, res) {
   });
 };
 
+
 exports.current  = function(req, res) {
   var session_id = req.session.user_id;
 

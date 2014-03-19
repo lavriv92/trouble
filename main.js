@@ -5,6 +5,7 @@ var express = require('express'),
     config = require(__dirname + '/config');
     account = require(__dirname + '/account');
     sessions = require(__dirname + '/sessions');
+    posts = require(__dirname + '/posts');
 
 mongoose.connect(config.db);
 
@@ -28,6 +29,7 @@ app.all('/', function(req, res) {
 
 app.use(account);
 app.use(sessions);
+app.use(posts);
 
 app.listen(3000);
 console.log('server run on port: 3000');

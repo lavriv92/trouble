@@ -32,7 +32,7 @@ define([
 	    var password = $('#password').val();
 	    
 	    $.ajax({
-			 url: '/login',
+			 url: '/api/v01/login',
 			 type: 'POST',
 	 		  data: {
 			   username: username,
@@ -40,7 +40,7 @@ define([
 			  },
 			
 			  success: function (){
-			    window.location.href = '/';
+			    window.location.href = '/#/account/dachboard';
 			  },
 
 			  error: function (){
