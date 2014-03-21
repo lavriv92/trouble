@@ -2,12 +2,14 @@ define([
   'backbone',
   'account/views/login_view',
   'account/views/register_view',
-  'account/views/dachboard_view'
+  'account/views/dachboard_view',
+  'account/models/current_user'
 ], function(
     Backbone, 
     LoginView, 
     RegisterView,
-    DachboardView
+    DachboardView,
+    CurrentUser
 ) {
   var AccountRouter = Backbone.Router.extend({
     routes: {

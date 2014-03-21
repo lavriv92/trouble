@@ -1,12 +1,21 @@
 define([
-    'backbone'
-], function(Backbone) {
+    'backbone',
+    'core/views/header_view'
+], function(
+  Backbone,
+  HeaderView  
+) {
     var AppView = Backbone.View.extend({
-        el: '#main',
-        initialize: function () {
-            console.log(this.$el);
-            return this;
-        }
+      el: '#main',
+      initialize: function () {
+        var header_view = new HeaderView;
+        header_view.render();
+        return this;
+      },
+
+      render: function() {
+        return this;
+      },
     });
 
     return AppView;
